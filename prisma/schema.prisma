@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Postimerkki {
+  id                Int    @id @default(autoincrement()) 
+  asiasanat         String
+  ilmestymispaiva   String
+  kaytonPaattyminen String?
+  nimellisarvo      Float
+  merkinNimi        String
+  merkinVari        String?
+  painopaikka       String
+  painosmaara       Int
+  taiteilija        String?
+  valuutta          String
+  kuvanUrl          String
+  julkaisuvuosi     Int
+
+  @@fulltext([asiasanat, merkinNimi, taiteilija])
+}

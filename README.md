@@ -1,0 +1,1 @@
+Koulutehtävä jossa haetaan palvelimelta postimerkkejä ja näytetään käyttäjälle.
